@@ -1,68 +1,196 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* Jeevan Aahar Design System - PlateShare Inspired Theme */
+/* Colors: Green #2E7D32, Orange #F57C00, Blue #1565C0 */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /* Core background - clean white */
+    --background: 0 0% 100%;
+    --foreground: 210 20% 15%;
+
+    /* Clean white cards */
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 15%;
+
+    /* Primary - Deep Green #2E7D32 (122, 39%, 33%) */
+    --primary: 122 39% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light green tint */
+    --secondary: 122 30% 95%;
+    --secondary-foreground: 122 39% 25%;
+
+    /* Muted - Neutral gray */
+    --muted: 210 15% 95%;
+    --muted-foreground: 210 10% 45%;
+
+    /* Accent - Orange #F57C00 (27, 100%, 48%) */
+    --accent: 27 100% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Info - Blue #1565C0 (212, 80%, 42%) */
+    --info: 212 80% 42%;
+    --info-foreground: 0 0% 100%;
+
+    /* Success green */
+    --success: 122 39% 40%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 20% 15%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 122 39% 33%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Dark theme */
+    --sidebar-background: 210 25% 12%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 122 39% 50%;
+    --sidebar-primary-foreground: 210 25% 12%;
+    --sidebar-accent: 210 20% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 210 15% 20%;
+    --sidebar-ring: 122 39% 50%;
+
+    /* Custom gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(122 39% 33%) 0%, hsl(122 39% 45%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(27 100% 48%) 0%, hsl(38 92% 50%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(212 80% 42%) 0%, hsl(212 80% 55%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 15% 97%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(210 20% 15% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(210 20% 15% / 0.12);
+    --shadow-glow: 0 0 40px hsl(122 39% 33% / 0.2);
   }
-  a:hover {
-    color: #747bff;
+
+  .dark {
+    --background: 210 25% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 210 20% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 210 20% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 122 39% 50%;
+    --primary-foreground: 210 25% 10%;
+
+    --secondary: 210 20% 18%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 210 15% 18%;
+    --muted-foreground: 210 10% 60%;
+
+    --accent: 27 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --info: 212 80% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --success: 122 39% 50%;
+    --success-foreground: 210 25% 10%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 25% 10%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 20%;
+    --input: 210 15% 20%;
+    --ring: 122 39% 50%;
+
+    --sidebar-background: 210 25% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 122 39% 50%;
+    --sidebar-primary-foreground: 210 25% 10%;
+    --sidebar-accent: 210 20% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 210 15% 15%;
+    --sidebar-ring: 122 39% 50%;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-blue {
+    background: var(--gradient-blue);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  .animate-count-up {
+    animation: count-up 2s ease-out forwards;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }
